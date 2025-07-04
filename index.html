@@ -2,16 +2,16 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>🎉 Happy Birthday! 🎂</title>
+  <title>Birthday Surprise</title>
   <style>
     body {
       font-family: sans-serif;
-      background: #fff0f5;
+      background: #fdfdfd;
       text-align: center;
       padding: 50px;
     }
     h1 {
-      color: #e91e63;
+      color: #10070a;
       font-size: 40px;
     }
     img {
@@ -19,18 +19,60 @@
       border-radius: 20px;
       margin-top: 20px;
     }
+    #message {
+      font-size: 24px;
+      color: #ff4081; /* pink */
+    }
+    #fireworks-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
   </style>
 </head>
-<script>
-const text = "亲爱的 XX，祝你生日快乐！你是最特别的存在 ✨";
-let i = 0;
-const typing = () => {
-  if (i < text.length) {
-    document.getElementById("message").innerHTML += text[i++];
-    setTimeout(typing, 80);
-  }
-};
-window.onload = typing;
-</script>
-<p id="message" style="font-size: 24px;"></p>
+<body>
+  <h1>🎉 Happy Birthday!</h1>
+  <p id="message"></p>
+  <img src="https://i.imgur.com/HPo6DJl.jpg" alt="Birthday Image">
+
+  <!-- Fireworks container -->
+  <div id="fireworks-container"></div>
+
+  <!-- Typing effect -->
+  <script>
+    const text = "Wishing you a wonderful birthday full of surprises and love!";
+    let i = 0;
+    const typing = () => {
+      if (i < text.length) {
+        document.getElementById("message").innerHTML += text[i++];
+        setTimeout(typing, 50);
+      }
+    };
+    window.onload = typing;
+  </script>
+
+  <!-- Fireworks JS (non-module version using IIFE from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.1.0/dist/fireworks.js"></script>
+  <script>
+    const container = document.getElementById('fireworks-container');
+    const fireworks = new Fireworks.default(container, {
+      hue: { min: 0, max: 360 },
+      delay: 15,
+      rocketsPoint: 50,
+      speed: 2,
+      acceleration: 1.05,
+      friction: 0.95,
+      gravity: 1.5,
+      particles: 100,
+      trace: 3,
+      explosion: 5,
+      autoresize: true
+    });
+    fireworks.start();
+  </script>
+</body>
 </html>
