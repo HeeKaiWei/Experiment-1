@@ -11,7 +11,7 @@
       padding: 50px;
     }
     h1 {
-      color: #1e69e9;
+      color: #e91e63;
       font-size: 40px;
     }
     img {
@@ -21,9 +21,16 @@
     }
   </style>
 </head>
-<body>
-  <h1>🎉 生日快乐！</h1>
-  <p>亲爱的 XX，这是我为你准备的惊喜网站！<br>希望你喜欢～ 🎁</p>
-  <img src="https://i.imgur.com/HPo6DJl.jpg" alt="生日图片">
-</body>
+<script>
+const text = "亲爱的 XX，祝你生日快乐！你是最特别的存在 ✨";
+let i = 0;
+const typing = () => {
+  if (i < text.length) {
+    document.getElementById("message").innerHTML += text[i++];
+    setTimeout(typing, 80);
+  }
+};
+window.onload = typing;
+</script>
+<p id="message" style="font-size: 24px;"></p>
 </html>
