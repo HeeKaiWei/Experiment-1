@@ -2,48 +2,178 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Birthday Surprise</title>
+  <title>Experiment</title>
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
   <style>
-    body { font-family: sans-serif; background: #fff; text-align: center; padding: 50px; }
-    #message { font-size: 24px; color: #e91e63; margin-bottom: 20px; }
-    #fireworks-container {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 0;
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to right, #2997bf, #45d1e1, #dedede);;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+      margin: 0;
     }
+
+    h1 {
+      color: #e57676;
+      font-size: 40px;
+    }
+
+    img {
+      width: 300px;
+      border-radius: 0px;
+      margin-top: 20px;
+    }
+
+    #message {
+      font-size: 40px;
+      color: #e43131;
+      margin-top: 20px;
+    }
+
+    #content {
+      position: relative;
+      z-index: 2;
+    }
+
+    #fireworks-container {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    #canvas-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 90vw;
+  height: 70vh;
+  max-width: 800px;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Optional: just for dev testing */
+.placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  color: #aaa;
+  font-style: italic;
+  font-size: 14px;
+}
+
+h1, #message {
+  font-family: 'Permanent Marker', cursive;
+}
+
+
   </style>
 </head>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 <body>
-  <h1>🎉 Happy Birthday!</h1>
-  <p id="message"></p>
+  <div id="content">
+    <p id="message"></p>
+  </div>
+
+  
+
   <div id="fireworks-container"></div>
 
   <script>
-    const text = "🎂 Here's to a day of laughter, love, and fireworks!";
-    let pos = 0;
-    function typing() {
-      if (pos < text.length) {
-        document.getElementById("message").textContent += text[pos++];
-        setTimeout(typing, 50);
-      }
-    }
-    window.onload = typing;
+      window.onload = () => {
+        // 📝 Typing Effect FIRST
+        const text = "Hello";
+        let i = 0;
+        const typing = () => {
+          if (i < text.length) {
+            document.getElementById("message").innerHTML += text[i++];
+            setTimeout(typing, 50);
+          }
+        };
+        typing();
+
+    
+
+      // 🎆 Fireworks effect LAST
+      const container = document.getElementById("fireworks-container");
+      const fireworks = new Fireworks.Fireworks(container, {
+        autoresize: true,
+        speed: 2,
+        acceleration: 1.05,
+        friction: 0.95,
+        gravity: 1.5,
+        particles: 120,
+        traceLength: 3,
+        explosion: 5
+      });
+      fireworks.start();
+    };
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
-  <script>
-    const container = document.getElementById('fireworks-container');
-    const fireworks = new Fireworks.default(container, {
-      hue: { min: 0, max: 360 },
-      speed: 3,
-      acceleration: 1.05,
-      friction: 0.95,
-      gravity: 1.5,
-      particles: 100,
-      trace: 3,
-      explosion: 5,
-      autoresize: true
-    });
-    fireworks.start();
-  </script>
+<!-- 🌟 Canva Embed Card -->
+<div 
+  style="
+    position: relative;
+    width: 100%;
+    padding-top: 53.75%;
+    box-shadow: 0 2px 8px rgba(110, 207, 227, 0.16);
+    margin: 2em auto;
+    overflow: hidden;
+    border-radius: 12px;
+    max-width: 960px;
+    will-change: transform;
+  "
+>
+  <iframe 
+    loading="lazy"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 75%;
+      border: none;
+      margin: 0;
+      padding: 0;
+    "
+    src="https://www.canva.com/design/DAGskW2fsHY/bIXnBOqphPmHXdMOW6oMQg/view?embed"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<!-- 🔗 Source Credit (optional to show) -->
+<p style="text-align: center; font-size: 14px; color: #555; margin-top: 1em;">
+  <a 
+    href="https://www.canva.com/design/DAGskW2fsHY/bIXnBOqphPmHXdMOW6oMQg/view?utm_content=DAGskW2fsHY&utm_campaign=designshare&utm_medium=embeds&utm_source=link" 
+    target="_blank" 
+    rel="noopener" 
+    style="color: #2997bf; text-decoration: none;"
+  >
+    View “Experiment” by Kai wei hee on Canva
+  </a>
+</p>
+
+
+
+
 </body>
 </html>
