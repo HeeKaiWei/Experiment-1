@@ -26,12 +26,6 @@
       font-family: 'Permanent Marker', cursive;
     }
 
-    img {
-      width: 300px;
-      border-radius: 20px;
-      margin-top: 20px;
-    }
-
     #message {
       font-size: 40px;
       color: #e43131;
@@ -57,38 +51,35 @@
     .canva-container {
       position: relative;
       width: 100%;
-      padding-top: 56.25%;
-      margin: 2em auto;
-      max-width: 960px;
+      height: 600px;
+      margin: 40px auto;
+      max-width: 1000px;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-      z-index: 2;
+      background: white;
     }
 
     .canva-container iframe {
-      position: absolute;
       width: 100%;
       height: 100%;
-      top: 0;
-      left: 0;
       border: none;
     }
 
     a {
       color: #2997bf;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 16px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Fireworks Background -->
+  <!-- Fireworks -->
   <div id="fireworks-container"></div>
 
-  <!-- Main Content -->
+  <!-- Content -->
   <div id="content">
 
     <h1>Hello, I'm Hee Kai Wei</h1>
@@ -99,16 +90,15 @@
     <div class="canva-container">
       <iframe
         loading="lazy"
-        src="https://www.canva.com/design/DAGskW2fsHY/view?embed"
-        allowfullscreen="allowfullscreen"
-        allow="fullscreen"
+        src="https://canva.link/ue27s2eag1986ww"
+        allowfullscreen
       ></iframe>
     </div>
 
-    <!-- Canva Link -->
+    <!-- Open Canva -->
     <p>
       <a
-        href="https://www.canva.com/design/DAGskW2fsHY/1E-mCZGbp-cLCchsXo4UqA/edit"
+        href="https://canva.link/ue27s2eag1986ww"
         target="_blank"
       >
         Open Canva Design
@@ -133,7 +123,7 @@
 
       typing();
 
-      // Fireworks Effect
+      // Fireworks
       const container = document.getElementById("fireworks-container");
 
       const fireworks = new Fireworks.Fireworks(container, {
