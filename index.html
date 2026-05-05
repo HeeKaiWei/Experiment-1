@@ -3,25 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Experiment</title>
+
+  <!-- Fireworks -->
   <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: sans-serif;
-      background: linear-gradient(to right, #2997bf, #45d1e1, #dedede);;
+      background: linear-gradient(to right, #2997bf, #45d1e1, #dedede);
       text-align: center;
       padding: 50px;
-      overflow: hidden;
+      overflow-x: hidden;
       margin: 0;
     }
 
     h1 {
       color: #e57676;
       font-size: 40px;
+      font-family: 'Permanent Marker', cursive;
     }
 
     img {
       width: 300px;
-      border-radius: 0px;
+      border-radius: 20px;
       margin-top: 20px;
     }
 
@@ -29,6 +36,7 @@
       font-size: 40px;
       color: #e43131;
       margin-top: 20px;
+      font-family: 'Permanent Marker', cursive;
     }
 
     #content {
@@ -46,75 +54,88 @@
       z-index: 0;
     }
 
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
+    .canva-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      margin: 2em auto;
+      max-width: 960px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      z-index: 2;
     }
 
-    #canvas-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  width: 90vw;
-  height: 70vh;
-  max-width: 800px;
-  max-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+    .canva-container iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+    }
 
-/* Optional: just for dev testing */
-.placeholder {
-  background: rgba(255, 255, 255, 0.05);
-  color: #aaa;
-  font-style: italic;
-  font-size: 14px;
-}
-
-h1, #message {
-  font-family: 'Permanent Marker', cursive;
-}
-
-
+    a {
+      color: #2997bf;
+      text-decoration: none;
+      font-size: 14px;
+    }
   </style>
 </head>
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
 <body>
-  <div id="content">
-    <p id="message"></p>
-  </div>
 
-  
-
+  <!-- Fireworks Background -->
   <div id="fireworks-container"></div>
 
+  <!-- Main Content -->
+  <div id="content">
+
+    <h1>Hello, I'm Hee Kai Wei</h1>
+
+    <p id="message"></p>
+
+    <!-- Canva Embed -->
+    <div class="canva-container">
+      <iframe
+        loading="lazy"
+        src="https://www.canva.com/design/DAGskW2fsHY/view?embed"
+        allowfullscreen="allowfullscreen"
+        allow="fullscreen"
+      ></iframe>
+    </div>
+
+    <!-- Canva Link -->
+    <p>
+      <a
+        href="https://www.canva.com/design/DAGskW2fsHY/1E-mCZGbp-cLCchsXo4UqA/edit"
+        target="_blank"
+      >
+        Open Canva Design
+      </a>
+    </p>
+
+  </div>
+
   <script>
-      window.onload = () => {
-        // 📝 Typing Effect FIRST
-        const text = "Hello";
-        let i = 0;
-        const typing = () => {
-          if (i < text.length) {
-            document.getElementById("message").innerHTML += text[i++];
-            setTimeout(typing, 50);
-          }
-        };
-        typing();
+    window.onload = () => {
 
-    
+      // Typing Effect
+      const text = "Welcome to my website 👋";
+      let i = 0;
 
-      // 🎆 Fireworks effect LAST
+      const typing = () => {
+        if (i < text.length) {
+          document.getElementById("message").innerHTML += text[i++];
+          setTimeout(typing, 50);
+        }
+      };
+
+      typing();
+
+      // Fireworks Effect
       const container = document.getElementById("fireworks-container");
+
       const fireworks = new Fireworks.Fireworks(container, {
         autoresize: true,
         speed: 2,
@@ -125,55 +146,10 @@ h1, #message {
         traceLength: 3,
         explosion: 5
       });
+
       fireworks.start();
     };
   </script>
-
-<!-- 🌟 Canva Embed Card -->
-<div 
-  style="
-    position: relative;
-    width: 100%;
-    padding-top: 53.75%;
-    box-shadow: 0 2px 8px rgba(110, 207, 227, 0.16);
-    margin: 2em auto;
-    overflow: hidden;
-    border-radius: 12px;
-    max-width: 960px;
-    will-change: transform;
-  "
->
-  <iframe 
-    loading="lazy"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 75%;
-      border: none;
-      margin: 0;
-      padding: 0;
-    "
-    src="https://canva.link/ue27s2eag1986ww
-    allowfullscreen
-  ></iframe>
-</div> -->
-
-🔗 Source Credit (optional to show) -->
- <p style="text-align: center; font-size: 14px; color: #555; margin-top: 1em;">
-  <a 
-    href="https://canva.link/ue27s2eag1986wwtm_source=link" 
-    target="_blank" 
-    rel="noopener" 
-    style="color: #2997bf; text-decoration: none;"
-  >
-    View “Experiment” by Kai wei hee on Canva
-  </a>
-</p>
-
-
-
 
 </body>
 </html>
